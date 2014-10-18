@@ -11,21 +11,21 @@
     <packaging>jar</packaging>
     <groupId>com.ziroby</groupId>
     <artifactId>hellojs-webjar</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>1.0.2-3</version>
     <name>Hellojs WebJar</name>
     <description>A WebJar for a simple Javascript hello world</description>
     <url>https://github.com/ziroby</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>1.0</upstream.version>
+        <upstream.version>1.0.1</upstream.version>
         <upstream.url>https://github.com/ziroby/hellojs/archive</upstream.url>
         <upstream.artifactId>hellojs</upstream.artifactId>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${upstream.artifactId}/${upstream.version}</destDir>
         <requirejs>
             {
                 "paths": {
-                    "hellojs": "main"
+                    "hellojs": "hellojs/main"
                 },
                 "shim": {
                     "hellojs": ["jquery"]
@@ -52,7 +52,7 @@
         <url>https://github.com/ziroby/hellojs</url>
         <connection>scm:git:https://github.com/ziroby/hellojs.git</connection>
         <developerConnection>scm:git:https://github.com/ziroby/hellojs.git</developerConnection>
-        <tag>1.0</tag>
+        <tag>1.0.1</tag>
     </scm>
 
     <dependencies>
@@ -127,5 +127,12 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <targetPath>${destDir}</targetPath>
+            </resource>
+        </resources>
     </build>
+
 </project>
